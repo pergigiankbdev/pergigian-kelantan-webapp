@@ -808,6 +808,117 @@
         transform: translateY(0);
         opacity: 1;
       }
+
+      /* Welcoming Hero Header styling */
+      .welcoming-hero {
+        position: relative;
+        height: 45vh;
+        min-height: 320px;
+        max-height: 480px;
+        background-image: url('modern_dental_clinic.png');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        padding: 48px;
+        color: #ffffff;
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+        border-bottom: none !important;
+      }
+
+      .welcoming-hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(15, 23, 42, 0.85) 0%,
+          rgba(13, 148, 136, 0.75) 50%,
+          rgba(15, 23, 42, 0.4) 100%
+        );
+        z-index: 1;
+      }
+
+      .welcoming-hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        animation: fadeInHero 0.8s ease-out;
+      }
+
+      .welcoming-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(13, 148, 136, 0.25);
+        border: 1px solid rgba(20, 184, 166, 0.4);
+        padding: 6px 12px;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: #5eead4;
+        width: fit-content;
+        backdrop-filter: blur(4px);
+      }
+
+      .welcoming-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        line-height: 1.25;
+        color: #ffffff;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+        letter-spacing: -0.5px;
+      }
+
+      .welcoming-subtitle {
+        font-size: 1.1rem;
+        color: #e2e8f0;
+        line-height: 1.6;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        max-width: 650px;
+      }
+
+      @keyframes fadeInHero {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Adjust existing hero section to blend into the welcoming hero */
+      .app-container > .welcoming-hero + .hero-section {
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important;
+        margin-top: -24px !important; /* offset the app-container gap of 24px */
+        border-top: none !important;
+        box-shadow: none !important;
+      }
+
+      @media (max-width: 768px) {
+        .welcoming-hero {
+          height: auto;
+          min-height: 280px;
+          padding: 32px 20px;
+        }
+        .welcoming-title {
+          font-size: 1.8rem;
+        }
+        .welcoming-subtitle {
+          font-size: 0.95rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -830,6 +941,22 @@
     </header>
 
     <div class="app-container">
+      <!-- Welcoming Hero Header -->
+      <section class="clinical-panel welcoming-hero">
+        <div class="welcoming-hero-overlay"></div>
+        <div class="welcoming-hero-content">
+          <span class="welcoming-badge">
+            <i data-lucide="heart-handshake" style="width: 14px; height: 14px"></i> SELAMAT DATANG
+          </span>
+          <h1 class="welcoming-title">
+            Pusat Sehenti Digital Perkhidmatan Pergigian Kota Bharu
+          </h1>
+          <p class="welcoming-subtitle">
+            Menyediakan penjagaan pergigian profesional yang mesra, moden, dan berkualiti tinggi untuk senyuman anda.
+          </p>
+        </div>
+      </section>
+
       <!-- Hero Section -->
       <section class="clinical-panel hero-section">
         <div class="hero-main">
