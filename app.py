@@ -1,15 +1,11 @@
-from flask import Flask
-app = Flask(__name__)
+from flask import Flask, send_from_directory
+
+app = Flask(__name__, static_folder='.', static_url_path='')
 
 @app.route('/')
 def home():
-    return """
-    <div style="text-align: center; margin-top: 10%; font-family: sans-serif;">
-        <h1>🦷 Pergigian Kelantan Web App</h1>
-        <p>Sistem dalam proses pembangunan. Pautan sedia untuk diuji!</p>
-        <p style="color: gray; font-size: 0.8em;">Powered by Python & Render</p>
-    </div>
-    """
+    return send_from_directory('.', 'index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
+
